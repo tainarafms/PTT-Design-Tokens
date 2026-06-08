@@ -1,0 +1,131 @@
+/* =========================================
+   1. DICIONÁRIO DE DESIGN TOKENS
+   ========================================= */
+:root {
+    --global-font: 'Inter', sans-serif;
+    
+    /* Tema Claro */
+    --bg-page: #f0f9ff;
+    --text-main: #0f172a;
+    --text-muted: #334155;
+    --btn-primary: #0ea5e9;
+    --btn-text: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(14, 165, 233, 0.4);
+
+    /* Cores das Partículas (Claro) */
+    --p-color-1: #ef4444; 
+    --p-color-2: #f59e0b; 
+    --p-color-3: #10b981; 
+    --p-color-4: #8b5cf6; 
+    --p-color-5: #ec4899; 
+}
+
+[data-theme="dark"] {
+    /* Tema Escuro */
+    --bg-page: #020617;
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --btn-primary: #8b5cf6;
+    --btn-text: #ffffff;
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(139, 92, 246, 0.5);
+
+    /* Cores das Partículas (Neon) */
+    --p-color-1: #fca5a5; 
+    --p-color-2: #fcd34d; 
+    --p-color-3: #6ee7b7; 
+    --p-color-4: #c4b5fd; 
+    --p-color-5: #f9a8d4; 
+}
+
+/* =========================================
+   2. ESTRUTURA GLOBAL E TRAVAMENTO DE TELA
+   ========================================= */
+body {
+    margin: 0; padding: 0;
+    color: var(--text-main); font-family: var(--global-font);
+    height: 100vh; width: 100vw; overflow: hidden; 
+    position: relative; transition: color 0.5s ease;
+}
+
+.background-canvas {
+    position: absolute; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: var(--bg-page);
+    z-index: 0; overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+
+.app-container {
+    position: relative; z-index: 10; 
+    display: flex; justify-content: center; align-items: center;
+    width: 100vw; height: 100vh; padding: 2vh 2vw; box-sizing: border-box;
+}
+
+/* =========================================
+   3. O QUADRO ÚNICO (GLASS PANEL)
+   ========================================= */
+.glass-panel {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    padding: 5vh 4vw; max-width: 850px; width: 100%;
+    
+    display: flex; flex-direction: column;
+    text-align: left; transition: all 0.5s ease;
+}
+
+.title { 
+    margin: 0 0 3vh 0; font-size: 4vh; 
+    font-weight: 700; color: var(--text-main); text-align: center; 
+}
+
+/* AQUI OCORREU A MUDANÇA DA LINHA DIVISÓRIA */
+.subtitle { 
+    margin: 3vh 0 1.5vh 0; font-size: 2.6vh; 
+    color: var(--text-main); 
+    border-top: 2px solid var(--glass-border); /* Linha antes do texto */
+    padding-top: 2vh; /* Espaço entre a linha e o texto */
+}
+
+.text-block { 
+    font-size: 2.1vh; line-height: 1.6; color: var(--text-muted); 
+    margin: 0 0 2vh 0; text-align: justify; 
+}
+.text-block:last-of-type { margin-bottom: 4vh; }
+
+.btn-container { 
+    text-align: center; margin-top: auto; 
+}
+
+.btn {
+    font-family: inherit; font-weight: 700; font-size: 2.3vh; 
+    padding: 2vh 40px; border-radius: 12px; cursor: pointer; border: none;
+    transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 100%; max-width: 400px;
+}
+.btn-primary { background-color: var(--btn-primary); color: var(--btn-text); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* =========================================
+   4. ESTILO DAS PARTÍCULAS (ANIMAÇÃO CSS)
+   ========================================= */
+.particle {
+    position: absolute; bottom: -100px; border-radius: 50%; opacity: 0.8;
+    animation: floatUp linear infinite; transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.c1 { background-color: var(--p-color-1); box-shadow: 0 0 20px var(--p-color-1); }
+.c2 { background-color: var(--p-color-2); box-shadow: 0 0 20px var(--p-color-2); }
+.c3 { background-color: var(--p-color-3); box-shadow: 0 0 20px var(--p-color-3); }
+.c4 { background-color: var(--p-color-4); box-shadow: 0 0 20px var(--p-color-4); }
+.c5 { background-color: var(--p-color-5); box-shadow: 0 0 20px var(--p-color-5); }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8); }
+    50% { transform: translateY(-50vh) scale(1.3); }
+    100% { transform: translateY(-120vh) scale(0.8); opacity: 0; }
+}

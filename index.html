@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC - Design Tokens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- O PLANO DE FUNDO (Partículas flutuantes) -->
+    <div class="background-canvas" id="background-canvas"></div>
+
+    <!-- O CONTEÚDO EM PRIMEIRO PLANO (Quadro Único) -->
+    <div class="app-container">
+        <main class="glass-panel">
+            
+            <h1 class="title">Design Tokens: Tematização Dinâmica</h1>
+            
+            <p class="text-block">
+                <strong>Demonstração Visual:</strong> Dezenas de partículas em segundo plano estão consumindo as variáveis de estilo ativas. Alterne o modo do sistema para ver a identidade visual completa ser modificada instantaneamente de tons sólidos para tons Neon.
+            </p>
+
+            <h3 class="subtitle">Contexto da Prova de Conceito</h3>
+            
+            <p class="text-block">
+                Este ambiente comprova a eficiência técnica dos Design Tokens. Todo o arranjo visual (cores do fundo, partículas e painéis) é governado por um dicionário semântico centralizado.
+            </p>
+            
+            <p class="text-block">
+                A mudança de tema reatribui as variáveis globalmente em tempo real, atestando a total separação entre o aspecto visual controlado pelo CSS e o motor de geração de elementos lógicos estruturado em JavaScript.
+            </p>
+
+            <!-- Botão fixado no final do quadro -->
+            <div class="btn-container">
+                <button class="btn btn-primary" id="theme-toggle">Ativar Dark Mode</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
